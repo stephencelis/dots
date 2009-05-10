@@ -1,0 +1,89 @@
+  RDoc.......................................................................
+  ........................FFF................FFF.........F...................
+  ........................FF.................FF...........E..................
+  ..................FFFFF.FF....FFFFFF....FEFFFEF...FEEFFEE..................
+  ................FF....FFFF...FE....FFF....FFF....FEF.......................
+  ................FFF....FFF...FEF....FF.....FF......FFEEF...................
+  ..................FEEEF.FFF....EEEEEF.......FEF........FFF.................
+  ...................................................FFEEFF..................
+  ................FFFFFEEEEEFFFFF.F..F.FFFFFEEEEEEFFFFF......................
+  ..............F........F.FFFFEEEEEEEEEEFFFFF.F.............................
+  .....................................................................ready!
+
+Free progress dots for your scripts. <tt>Test::Unit</tt>-style.
+
+http://github.com/stephencelis/dots
+
+
+== Example
+
+  % ruby -rubygems
+  require "dots"
+  require "open-uri"
+  require "hpricot"
+
+  File.open("alts.txt", "w") do |f|
+    (1..10).each.with_dots do |n|
+      doc = Hpricot open("http://www.qwantz.com/archive/%06d.html" % n)
+      alt = (doc / "font img").pop["title"]
+      raise "No alt text found!" if alt.nil?
+      f.puts "%3d. %s" % [n, alt]
+    end
+  end
+  ^D
+  ..........
+  Finished in 6.225932 seconds.
+
+  10 total, 10 passed, 0 failed, 0 erred
+
+
+== Usage
+
+Swap out +each+ for +each_with_dots+, or, with enumerators, just add
++with_dots+; if you don't want to write to standard output, specify the IO as
+an argument for +each_with_dots+ (or +with_dots+).
+
+Raise nameless (i.e., +RuntimeError+) exceptions for potential failures.
+
+
+== Extras
+
+* <tt>require "dots/redgreen"</tt>
+* <tt>require "dots/rainbows"</tt>
+* <tt>require "dots/kaoemoji"</tt>
+
+Oh, and for heavy, non-iterative processing:
+
+  dots do
+    # ...
+  end
+
+
+== Install
+
+  % sudo gem install stephencelis-dots --source=http://gems.github.com
+
+
+== License
+
+(The MIT License)
+
+(c) 2009-* Stephen Celis, stephen@stephencelis.com.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal 
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the Software is 
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
