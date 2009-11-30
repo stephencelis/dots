@@ -28,7 +28,7 @@ Feature: dot progress
     And I should see the exception's line number
     And I should see "<3>"
     And I should see "5 total, 4 passed, 1 failed, 0 erred"
-  
+
   Scenario: Display errors
     Given an array [1, 2, 3, 4, 5]
     When I divide each by zero

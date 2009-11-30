@@ -57,7 +57,7 @@ module Dots
     #   ?> end
     #   E...F.
     #   Finished in 0.000430 seconds.
-    # 
+    #
     #     1) Error
     #   ZeroDivisionError: divided by 0
     #   with <0>
@@ -66,11 +66,14 @@ module Dots
     #     (irb):2:in `irb_binding'
     #     /usr/local/lib/ruby/1.8/irb/workspace.rb:52:in `irb_binding'
     #     /usr/local/lib/ruby/1.8/irb/workspace.rb:52
-    # 
+    #
     #     2) Failure
-    #   No fours! 
+    #   No fours!
     #   with <4>
     #   [(irb):4]
+    #
+    #   6 total, 4 passed, 1 failed, 1 erred
+    #   => 0..5
     def each_with_dots(io = $stdout)
       old_sync, io.sync = io.sync, true
       exceptions, passed, start = [], 0, Time.now
@@ -81,11 +84,7 @@ module Dots
           io.print Dots["."]
           passed += 1
         rescue => e
-          if e.is_a? RuntimeError
-            io.print Dots["F"]
-          else
-            io.print Dots["E"]
-          end
+          io.print Dots[e.is_a?(RuntimeError) ? "F" : "E"]
           exceptions << [object, e] unless exceptions.nil?
         end
       end
@@ -115,7 +114,7 @@ module Dots
     #   ?> end
     #   .....=> 5
     def dots(interval = 1, io = $stdout)
-      old_sync, io.sync = io.sync, true 
+      old_sync, io.sync = io.sync, true
 
       thread = Thread.new do
         dot = lambda do

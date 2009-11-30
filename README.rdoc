@@ -10,7 +10,7 @@
   ..............F........F.FFFFEEEEEEEEEEFFFFF.F.............................
   .....................................................................ready!
 
-Free progress dots for your scripts. <tt>Test::Unit</tt>-style.
+Free progress dots for your scripts, <tt>Test::Unit</tt>-style.
 
 http://github.com/stephencelis/dots
 
@@ -70,11 +70,11 @@ Oh, and for heavy, non-iterative processing:
 
 (c) 2009-* Stephen Celis, stephen@stephencelis.com.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy 
-of this software and associated documentation files (the "Software"), to deal 
-in the Software without restriction, including without limitation the rights 
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-copies of the Software, and to permit persons to whom the Software is 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all

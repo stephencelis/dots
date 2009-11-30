@@ -39,7 +39,7 @@ Then(/^I should see (\d+) "([^\"])" dots?$/) do |dot, number|
 end
 
 Then(/^I should see how long it took$/) do
-  @content.should match(/Finished in \d+\.\d+ seconds/)
+  @content.should match(/Finished in .+? seconds/)
 end
 
 Then(/^I should see "([^\"]*)" (\d+) times?$/) do |message, number|
