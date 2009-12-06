@@ -61,7 +61,7 @@ Oh, and for heavy, non-iterative processing:
 
 == Install
 
-  % sudo gem install stephencelis-dots --source=http://gems.github.com
+  % gem install dots
 
 
 == License
