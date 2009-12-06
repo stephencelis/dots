@@ -77,7 +77,7 @@ module Dots
     def each_with_dots(io = $stdout)
       old_sync, io.sync = io.sync, true
       exceptions, passed, start = [], 0, Time.now
-      trap("INT") { return io.puts "abort!" }
+      trap("INT") { return io.puts("abort!") }
       each do |object|
         begin
           yield object
