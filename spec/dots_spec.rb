@@ -1,13 +1,14 @@
 require "spec/mocks"
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + "/../lib")
 require "dots"
-include Enumerable # To bring 1.8.7's Enumerator top-level.
 
 def enumerator?
   RUBY_VERSION >= "1.8.7"
 end
 
-describe Dots do
+include Enumerable # To bring 1.8.7's Enumerator top-level.
+
+describe "Dots" do
   it 'should be configurable for "."' do
     Dots["."].should == "."
     proc { Dots["."] = ":)" }.should_not raise_error
@@ -35,19 +36,22 @@ end
 describe "Monkey-patched" do
   describe "Enumerable.instance_methods" do
     it do
-      Enumerable.instance_methods.should include("each_with_dots")
+      instance_methods = Enumerable.instance_methods.map { |m| m.to_s }
+      instance_methods.should include("each_with_dots")
     end
   end
 
   describe "Enumerator.instance_methods" do
     it do
-      Enumerator.instance_methods.should include("with_dots")
+      instance_methods = Enumerator.instance_methods.map { |m| m.to_s }
+      instance_methods.should include("with_dots")
     end
   end if enumerator?
 
   describe "Kernel.methods" do
     it do
-      Kernel.private_instance_methods.should include("dots")
+      instance_methods = Kernel.private_instance_methods.map { |m| m.to_s }
+      instance_methods.should include("dots")
     end
   end
 end
@@ -109,7 +113,7 @@ end if enumerator?
 describe "with_dots" do
   it "should print dots" do
     Dots.should_receive(:[]).with "."
-    dots(1, StringIO.new) {}
+    dots(1, StringIO.new) { sleep 0.001 }
   end
 
   it "should require a block" do

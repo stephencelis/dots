@@ -23,11 +23,13 @@ rescue LoadError
 end
 
 begin
+  require "cucumber"
   require "cucumber/rake/task"
 
   desc "Run all features"
   Cucumber::Rake::Task.new :features do |t|
-    t.cucumber_opts = "--no-source --format=progress features"
+    t.cucumber_opts = "features --no-source --format=progress"
+    t.fork = false
   end
 
   defaults << :features
