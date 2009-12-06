@@ -1,6 +1,6 @@
 # Dots makes dots.
 module Dots
-  VERSION = "0.0.1"
+  VERSION = "0.0.2"
 
   class InvalidDot < StandardError
   end

@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dots}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Stephen Celis"]
-  s.date = %q{2009-05-10}
+  s.date = %q{2009-12-06}
   s.description = %q{Free progress dots for your scripts.}
   s.email = ["stephen@stephencelis.com"]
   s.extra_rdoc_files = ["History.rdoc", "Manifest.txt", "README.rdoc"]
